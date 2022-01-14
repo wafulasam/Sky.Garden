@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
-import MainLayout from '../layouts/mainlayout';
+import MainLayout from '../layouts/MainLayout';
 
 export default function CartScreen() {
   return (
     <MainLayout>
         <View style={styles.container}>
-            <Text>Product list</Text>
+            <Text>cart</Text>
         </View>
     </MainLayout>
   );

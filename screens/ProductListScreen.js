@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import MainLayout from '../layouts/mainlayout';
+import MainLayout from '../layouts/MainLayout';
 
 export default function ProductListScreen() {
   return (
