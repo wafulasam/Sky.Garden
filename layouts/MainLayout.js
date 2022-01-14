@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import { COLOR_DARK } from "../styles/colors";
 
-export default function DefaultLayout(props) {
+export default function MainLayout(props) {
   return (
     <SafeAreaView
       style={{
