@@ -1,10 +1,12 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { BORDER_RADIUS,  } from "../../styles/variables";
 import { LIGHT_GRAY, COLOR_WHITE, COLOR_TEXT, COLOR_DARK } from "../../styles/colors";
 import { vh, vw } from "react-native-css-vh-vw";
 import { useNavigation } from "@react-navigation/native";
-import { PRODUCT_DETAIL_SCREEN } from "../../navigation/ScreenNames"
+import { PRODUCT_DETAIL_SCREEN } from "../../navigation/ScreenNames";
+import AddToCartButton from "../Buttons/AddToCartButton";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function ProductCard({data}) {
   const product = data;
@@ -18,6 +20,10 @@ export default function ProductCard({data}) {
         <Image source={{uri: product.thumbnail}} style={styles.productImage} />
         <Text style={styles.name}>{product.title}</Text>
         <Text style={styles.pricing}>{ product.stock_record_price_currency} {product.stock_record_price_retail}</Text>
+        <AddToCartButton
+          onPress={()=> Alert.alert("Added to cart!")}
+          icon={<AntDesign name="shoppingcart" size={16} color={COLOR_WHITE} />}
+        />
       </TouchableOpacity>
     </View>
   );

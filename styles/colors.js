@@ -7,6 +7,7 @@ export const COLOR_MINT = "#F7FDF9";
 export const COLOR_TEXT = "#4D4D4D";
 export const COLOR_GREEN = "#55D187";
 export const COLOR_FADE = "#D4D6D8";
+export const COLOR_SEPERATOR = "#FFFFFF66";
 
 export const COLOR_WHITE = "#ffffff";
 export const LIGHT_GRAY = "#e9ebef";
