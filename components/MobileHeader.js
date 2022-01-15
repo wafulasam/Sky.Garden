@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 import { COLOR_BLACK, COLOR_DARK, COLOR_WHITE} from "../styles/colors";
 import { AntDesign} from "@expo/vector-icons";
+import UserIcon from "../components/UserIcon";
+import CartIcon from "../components/CartIcon";
 
 export default function MobileHeader() {
     return (
@@ -20,6 +22,10 @@ export default function MobileHeader() {
                 <View style={styles.imageWrapper}>
                     <Image source={require("../assets/images/menu.png")} style={styles.hamburgerMenu} />
                     <Image source={require("../assets/images/skygarden.png")} style={styles.logo} />
+                </View>
+                <View style={styles.imageWrapper}>
+                    <UserIcon/>
+                    <CartIcon/>
                 </View>
             </View>
         </View>
