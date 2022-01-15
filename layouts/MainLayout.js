@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StatusBar,
-  View,
-  Platform
-} from "react-native";
-import { COLOR_DARK } from "../styles/colors";
+import { SafeAreaView, StatusBar, View, Platform } from "react-native";
+import { COLOR_BLACK } from "../styles/colors";
+import MobileHeader from "../components/MobileHeader";
 
 export default function MainLayout(props) {
   return (
@@ -13,17 +9,18 @@ export default function MainLayout(props) {
       <SafeAreaView
         style={{
           paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-          backgroundColor: COLOR_DARK,
+          backgroundColor: COLOR_BLACK,
           flex: 0,
         }}
       >
       <StatusBar
         translucent={true}
-        backgroundColor={null ? { COLOR_FAUX_DARK } : props.bg}
+        backgroundColor={COLOR_BLACK}
         barStyle={"light-content"}
       />
       </SafeAreaView>
 
+      <MobileHeader/>
       {props.children}
 
     </View>
