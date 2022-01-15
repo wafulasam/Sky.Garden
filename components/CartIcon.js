@@ -2,13 +2,17 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { COLOR_WHITE, COLOR_GREEN, COLOR_BLACK } from "../styles/colors";
-import { BORDER_RADIUS_MAX } from "../styles/variables"
+import { BORDER_RADIUS_MAX } from "../styles/variables";
+import { useNavigation } from "@react-navigation/native";
+import { CART_SCREEN } from "../navigation/ScreenNames";
 
 export default function CartIcon() {
+  const navigation = useNavigation();
   let count = 2;
+
   return (
     <TouchableOpacity
-      onPress={() => Alert.alert("Your cart is locked!")}
+      onPress={() => navigation.navigate(CART_SCREEN)}
       style={styles.button}
     >
       <AntDesign name="shoppingcart" size={30} color={COLOR_WHITE} />

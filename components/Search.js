@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TextInput, StyleSheet, Dimensions } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { COLOR_WHITE, COLOR_DARK } from "../styles/colors";
+import { COLOR_WHITE,COLOR_DARK, COLOR_TEXT } from "../styles/colors";
 import { BORDER_RADIUS_MAX } from "../styles/variables";
 
 export default function Search(props) {
@@ -13,7 +13,7 @@ export default function Search(props) {
           // multiline
           value={props.value}
           onChangeText={props.onChangeText}
-          placeholderTextColor={COLOR_DARK}
+          placeholderTextColor={COLOR_TEXT}
           style={styles.input}
         />
         <AntDesign name="search1" size={24} color={COLOR_DARK} />
