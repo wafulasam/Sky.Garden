@@ -2,6 +2,7 @@ import React from "react";
 import { SafeAreaView, StatusBar, View, Platform } from "react-native";
 import { COLOR_BLACK } from "../styles/colors";
 import MobileHeader from "../components/MobileHeader";
+import Search from "../components/Search";
 
 export default function MainLayout(props) {
   return (
@@ -21,8 +22,9 @@ export default function MainLayout(props) {
       </SafeAreaView>
 
       <MobileHeader/>
+      <Search/>
+      
       {props.children}
-
     </View>
   );
 }

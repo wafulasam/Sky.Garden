@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     header: {
-        padding: 10,
+        paddingHorizontal: 10,
         width: Dimensions.get("window").width,
         backgroundColor: COLOR_DARK,
         flexDirection: "row",
