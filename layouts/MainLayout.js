@@ -23,8 +23,8 @@ export default function MainLayout(props) {
 
       <MobileHeader/>
       <Search/>
-      
       {props.children}
+
     </View>
   );
 }
