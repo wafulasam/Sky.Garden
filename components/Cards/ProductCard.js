@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { BORDER_RADIUS,  } from "../../styles/variables";
-import { LIGHT_GRAY, COLOR_WHITE } from "../../styles/colors";
+import { LIGHT_GRAY, COLOR_WHITE, COLOR_TEXT, COLOR_DARK } from "../../styles/colors";
 import { vh, vw } from "react-native-css-vh-vw";
 import { useNavigation } from "@react-navigation/native";
 import { PRODUCT_DETAIL_SCREEN } from "../../navigation/ScreenNames"
@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   name: {
+    color: COLOR_TEXT,
+  },
+  pricing: {
     fontWeight: "bold",
+    color: COLOR_DARK,
   },
 });
