@@ -1,13 +1,18 @@
 import React from "react";
 import { Text, View } from 'react-native';
 import MainLayout from '../layouts/MainLayout';
+import BreadCrumbs from '../components/BreadCrumbs';
 
 export default function CartScreen() {
   return (
     <MainLayout>
-        <View>
-            <Text>cart</Text>
-        </View>
+      <BreadCrumbs
+        details="Home "
+        activeDetail="Cart"
+      />
+      <View>
+          <Text>cart</Text>
+      </View>
     </MainLayout>
   );
 }
