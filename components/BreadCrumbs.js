@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
-import { COLOR_BLACK, COLOR_DARK, COLOR_TEXT, COLOR_WHITE} from "../styles/colors";
+import { COLOR_MINT, COLOR_TEXT , COLOR_BLACK} from "../styles/colors";
 
 export default function BreadCrumbs(props) {
     const { details, activeDetail } = props;
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 20,
         width: Dimensions.get("window").width,
-        backgroundColor: COLOR_WHITE,
+        backgroundColor: COLOR_MINT,
         flexDirection: "row",
     },
 });
