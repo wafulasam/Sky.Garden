@@ -1,5 +1,6 @@
 import { createStore } from "redux";
 import { rootReducer } from "./reducers";
+import { useSelector } from "react-redux";
 
 export const store = createStore(rootReducer);
 
