@@ -6,9 +6,13 @@ import { BORDER_RADIUS_MAX } from "../styles/variables";
 import { useNavigation } from "@react-navigation/native";
 import { CART_SCREEN } from "../navigation/ScreenNames";
 
+import { useAppStore } from "../store/store";
+import { getTotalCartQuantity } from "../utils";
+
 export default function CartIcon() {
   const navigation = useNavigation();
-  let count = 2;
+  const { cart } = useAppStore();
+  const totalItemsInCart = getTotalCartQuantity(cart);
 
   return (
     <TouchableOpacity
@@ -16,9 +20,9 @@ export default function CartIcon() {
       style={styles.button}
     >
       <AntDesign name="shoppingcart" size={30} color={COLOR_WHITE} />
-      {count > 0 ? 
+      {totalItemsInCart > 0 ? 
         <View style={styles.badge}>
-          <Text style={styles.text}> {count}</Text>
+          <Text style={styles.text}> {totalItemsInCart}</Text>
         </View> 
       : null}
     </TouchableOpacity>
