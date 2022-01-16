@@ -12,9 +12,9 @@ import { getTotalCartPrice } from "../utils";
 
 function CartFooter (data) {
  const cart = data.data
+
   return (
     <View>
-      <Text>{JSON.stringify(cart)}</Text>
       <View style={styles.cartTotal}>
         <Text style={styles.total}>Total</Text>
         <Text style={styles.totalPrice}>Ksh {getTotalCartPrice(cart)}</Text>
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   wrapper: {
     height: vh(80),
     width: "100%",
+    paddingBottom: vh(10)
   },
   heading: {
     fontSize: 30,

@@ -9,7 +9,6 @@ import { removeFromCart, increaseQuatity, decreaseQuantity } from "../../store/a
 
 export default function CartItemsCard({data}) {
   const product = data;
-  const newPrice = product.stock_record_price_retail * product.quantity // price changes with change in quantity
   
   return (
     <View style={styles.card}>
@@ -32,7 +31,7 @@ export default function CartItemsCard({data}) {
         <TouchableOpacity onPress={() => removeFromCart(product)}>
           <Text style={styles.remove}>Remove</Text>
         </TouchableOpacity>
-        <Text style={styles.pricing}>{ product.stock_record_price_currency} {newPrice}</Text>
+        <Text style={styles.pricing}>{ product.stock_record_price_currency} {product.stock_record_price_retail}</Text>
       </View>
     </View>
   );
