@@ -1,5 +1,4 @@
 // cart reducer
-import { CartState } from "../../types";
 import _ from "lodash";
 
 const initialState = {
