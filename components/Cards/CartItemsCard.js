@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { BORDER_RADIUS,  } from "../../styles/variables";
-import { LIGHT_GRAY, COLOR_WHITE, COLOR_TEXT, COLOR_DARK, COLOR_GREEN } from "../../styles/colors";
+import { LIGHT_GRAY, COLOR_WHITE, COLOR_TEXT, COLOR_DARK, COLOR_GREEN, COLOR_BLACK } from "../../styles/colors";
 import { vw } from "react-native-css-vh-vw";
+import { Ionicons, EvilIcons } from '@expo/vector-icons';
 
 import { removeFromCart } from "../../store/actions/cartActions";
 
@@ -16,6 +17,11 @@ export default function CartItemsCard({data}) {
       </View>
       <View style={styles.sectionTwo}>
         <Text style={styles.name}>{product.title}</Text>
+        <View style={styles.changeQuantity}>
+        <EvilIcons name="minus" size={30} color={COLOR_DARK} />
+          <Text style={styles.quantity}>{product.quantity}</Text>
+          <Ionicons name="add-circle-outline" size={28} color={COLOR_GREEN} style={{ marginTop: -3 }} />
+        </View>
       </View>
       <View style={styles.sectionThree}>
         <TouchableOpacity onPress={() => removeFromCart(product)}>
@@ -60,6 +66,14 @@ const styles = StyleSheet.create({
   pricing: {
     fontWeight: "bold",
     color: COLOR_DARK,
+  },
+  changeQuantity: {
+    marginTop: 20,
+    flexDirection: "row",
+  },
+  quantity: {
+    marginHorizontal: 10,
+    fontSize: 18,
   },
   remove: {
     fontWeight: "bold",
