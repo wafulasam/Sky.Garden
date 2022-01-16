@@ -34,7 +34,7 @@ export default function ProductListScreen({ navigation }) {
               numColumns={2}
               data={products}
               renderItem={({ item }) => <ProductCard data={item} />}
-              keyExtractor={(item) => item.title}
+              keyExtractor={(item) => item.id}
             />
         </ImageBackground>
     </MainLayout>
