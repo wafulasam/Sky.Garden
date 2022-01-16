@@ -6,6 +6,8 @@ import PrimaryButton from "../components/Buttons/PrimaryButton"
 import { COLOR_DARK, COLOR_GREEN } from "../styles/colors";
 import { vh } from "react-native-css-vh-vw";
 
+import { addToCart } from "../store/actions/cartActions";
+
 export default function ProductDetailScreen({ route }) {
   const product = route.params.data;
 
@@ -24,6 +26,7 @@ export default function ProductDetailScreen({ route }) {
         <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.price}>{product.stock_record_price_currency} {product.stock_record_price_retail}</Text>
         <PrimaryButton
+          onPress={() => addToCart(product)}
           title="ADD TO CART"
         />
       </ScrollView>
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     backgroundColor: "red"
   },
   productImage: {
-    height: vh(50),
+    height: vh(30),
     width: "90%",
     margin: 10,
   },
