@@ -18,9 +18,13 @@ export default function CartItemsCard({data}) {
       <View style={styles.sectionTwo}>
         <Text style={styles.name}>{product.title}</Text>
         <View style={styles.changeQuantity}>
-        <EvilIcons name="minus" size={30} color={COLOR_DARK} />
-          <Text style={styles.quantity}>{product.quantity}</Text>
-          <Ionicons name="add-circle-outline" size={28} color={COLOR_GREEN} style={{ marginTop: -3 }} />
+          <TouchableOpacity onPress={() => null}>
+            <EvilIcons name="minus" size={30} color={COLOR_DARK} />
+          </TouchableOpacity>
+            <Text style={styles.quantity}>{product.quantity}</Text>
+          <TouchableOpacity onPress={() => null}>
+            <Ionicons name="add-circle-outline" size={28} color={COLOR_GREEN} style={{ marginTop: -3 }} />
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.sectionThree}>
