@@ -20,7 +20,7 @@ export default function ProductCard({data}) {
         onPress={() => navigation.navigate(PRODUCT_DETAIL_SCREEN, { data: product })}
       >
         <Image source={{uri: product.thumbnail}} style={styles.productImage} />
-        <Text style={styles.name}>{product.title}</Text>
+        <Text style={styles.name} ellipsizeMode='tail' numberOfLines={2}>{product.title}</Text>
         <Text style={styles.pricing}>{ product.stock_record_price_currency} {product.stock_record_price_retail}</Text>
         <AddToCartButton
           onPress={()=> addToCart(product)}

@@ -39,6 +39,30 @@ export const cartReducer = (state = initialState, action) => {
          const newCartState = _.pull(state.cart, cartItemToBeRemoved);
          return {...state, cart: [...newCartState]}
       }
+      case "INCREASE_QUANTITY": {
+         const cart = state.cart && state.cart;  
+         objIndex = cart.findIndex((obj => obj.id === action.payload.id));
+         cart[objIndex].quantity = action.payload.quantity + 1;
+         const newActionIncreament = cart[objIndex];
+
+         let itemToBeIncreamented = {};
+         state.cart.filter((cartItem) => cartItem.id === action.payload.id ? itemToBeIncreamented = cartItem : null);
+         const newCartStateForIncreament = _.pull(state.cart, itemToBeIncreamented);
+
+         return {...state, cart: [...newCartStateForIncreament, {...newActionIncreament}]}
+      } 
+      case "DECREASE_QUANTITY": {
+         const cart = state.cart && state.cart;  
+         objIndex = cart.findIndex((obj => obj.id === action.payload.id));
+         cart[objIndex].quantity = action.payload.quantity - 1;
+         const newActionIncreament = cart[objIndex];
+
+         let itemToBeIncreamented = {};
+         state.cart.filter((cartItem) => cartItem.id === action.payload.id ? itemToBeIncreamented = cartItem : null);
+         const newCartStateForIncreament = _.pull(state.cart, itemToBeIncreamented);
+         
+         return {...state, cart: [...newCartStateForIncreament, {...newActionIncreament}]}
+      }     
       default:
          return state;
    }

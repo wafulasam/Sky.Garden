@@ -5,7 +5,7 @@ import { LIGHT_GRAY, COLOR_WHITE, COLOR_TEXT, COLOR_DARK, COLOR_GREEN, COLOR_BLA
 import { vw } from "react-native-css-vh-vw";
 import { Ionicons, EvilIcons } from '@expo/vector-icons';
 
-import { removeFromCart } from "../../store/actions/cartActions";
+import { removeFromCart, increaseQuatity, decreaseQuantity } from "../../store/actions/cartActions";
 
 export default function CartItemsCard({data}) {
   const product = data;
@@ -16,13 +16,13 @@ export default function CartItemsCard({data}) {
         <Image source={{uri: product.thumbnail}} style={styles.productImage} />
       </View>
       <View style={styles.sectionTwo}>
-        <Text style={styles.name}>{product.title}</Text>
+        <Text style={styles.name} >{product.title.substring(0, 25)}...</Text>
         <View style={styles.changeQuantity}>
-          <TouchableOpacity onPress={() => null}>
+          <TouchableOpacity onPress={() => decreaseQuantity(product)}>
             <EvilIcons name="minus" size={30} color={COLOR_DARK} />
           </TouchableOpacity>
             <Text style={styles.quantity}>{product.quantity}</Text>
-          <TouchableOpacity onPress={() => null}>
+          <TouchableOpacity onPress={() => increaseQuatity(product)}>
             <Ionicons name="add-circle-outline" size={28} color={COLOR_GREEN} style={{ marginTop: -3 }} />
           </TouchableOpacity>
         </View>
