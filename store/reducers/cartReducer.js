@@ -43,25 +43,23 @@ export const cartReducer = (state = initialState, action) => {
          const cart = state.cart && state.cart;  
          objIndex = cart.findIndex((obj => obj.id === action.payload.id));
          cart[objIndex].quantity = action.payload.quantity + 1;
-         const newActionIncreament = cart[objIndex];
-
-         let itemToBeIncreamented = {};
-         state.cart.filter((cartItem) => cartItem.id === action.payload.id ? itemToBeIncreamented = cartItem : null);
-         const newCartStateForIncreament = _.pull(state.cart, itemToBeIncreamented);
-
-         return {...state, cart: [...newCartStateForIncreament, {...newActionIncreament}]}
+         const afterIncreamentState = cart;
+         
+         return {
+            ...state, 
+            cart: [...afterIncreamentState]
+         }
       } 
       case "DECREASE_QUANTITY": {
          const cart = state.cart && state.cart;  
          objIndex = cart.findIndex((obj => obj.id === action.payload.id));
          cart[objIndex].quantity = action.payload.quantity - 1;
-         const newActionIncreament = cart[objIndex];
-
-         let itemToBeIncreamented = {};
-         state.cart.filter((cartItem) => cartItem.id === action.payload.id ? itemToBeIncreamented = cartItem : null);
-         const newCartStateForIncreament = _.pull(state.cart, itemToBeIncreamented);
+         const afterIncreamentState = cart;
          
-         return {...state, cart: [...newCartStateForIncreament, {...newActionIncreament}]}
+         return {
+            ...state, 
+            cart: [...afterIncreamentState]
+         }
       }     
       default:
          return state;
