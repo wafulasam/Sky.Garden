@@ -55,10 +55,20 @@ export const cartReducer = (state = initialState, action) => {
          objIndex = cart.findIndex((obj => obj.id === action.payload.id));
          cart[objIndex].quantity = action.payload.quantity - 1;
          const afterIncreamentState = cart;
-         
-         return {
-            ...state, 
-            cart: [...afterIncreamentState]
+
+         // remove item from cart from when quantity is
+         const itemToRemoveWhenQuantityIsZero = cart[objIndex];
+         if(itemToRemoveWhenQuantityIsZero.quantity <1) {
+            const newCartStateWhenQuantityIsZero = _.pull(state.cart, itemToRemoveWhenQuantityIsZero);
+            return {
+               ...state, 
+               cart: [...newCartStateWhenQuantityIsZero]
+            }
+         } else {
+            return {
+               ...state, 
+               cart: [...afterIncreamentState]
+            }
          }
       }     
       default:
