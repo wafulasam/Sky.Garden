@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 export const store = createStore(rootReducer);
 
 export const useAppStore = () => {
-    const products = useSelector((state) => state.productsReducer.products).flat(); // flat is used to remove the second bracket.
+    const products = useSelector((state) => state.productsReducer.products).flat();
+    const cart = useSelector((state) => state.cartReducer.cart);
  
     return {
        products,
+       cart,
     }
  }
