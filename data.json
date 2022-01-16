@@ -1,6 +1,7 @@
 {
   "listings" : [
   { 
+    "id": 1,
     "searchScore": 1.0,
     "title": "Four Leaf Clover Ndfvecklace.",
     "stock_record_price_retail": 540.0,
@@ -11,6 +12,7 @@
     "partner_name": "Bella's Jewellery"
   },
   { 
+    "id": 2,
     "searchScore": 132.0,
     "title": "Four Leaf Clover Necklace.",
     "stock_record_price_retail": 540.0,
@@ -21,6 +23,7 @@
     "partner_name": "Bella's Jewellery"
   },
   { 
+    "id": 3,
     "searchScore": 13.0,
     "title": "Four Leaf Clover Necklace.",
     "stock_record_price_retail": 540.0,
@@ -31,6 +34,7 @@
     "partner_name": "Bella's Jewellery"
   },
   { 
+    "id": 4,
     "searchScore": 1.30,
     "title": "Four Leaf 3Clover Necklace.",
     "stock_record_price_retail": 540.0,

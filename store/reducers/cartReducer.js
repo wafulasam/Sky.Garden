@@ -17,9 +17,15 @@ export const cartReducer = (state = initialState, action) => {
          
          if(action.payload.id === existingCartItem.id) {
             const newActionPayload = {
-               "id": existingCartItem.id,
-               "name": existingCartItem.name,
-               "quantity": existingCartItem.quantity +1
+               "searchScore": existingCartItem.searchScore,
+               "title": existingCartItem.title,
+               "stock_record_price_retail": existingCartItem.stock_record_price_retail,
+               "stock_record_price_currency": existingCartItem.stock_record_price_currency,
+               "thumbnail": existingCartItem.thumbnail,
+               "offer_benefit_type": existingCartItem.offer_benefit_type,
+               "offer_benefit_value": existingCartItem.offer_benefit_type,
+               "partner_name": existingCartItem.partner_name,
+               "quantity": existingCartItem.quantity +1 // increase quantity
             }
             return {...state, cart: [...newCartState, {...newActionPayload}]}
          } else {
