@@ -8,6 +8,8 @@ import { PRODUCT_DETAIL_SCREEN } from "../../navigation/ScreenNames";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import { AntDesign } from "@expo/vector-icons";
 
+import { addToCart } from "../../store/actions/cartActions";
+
 export default function ProductCard({data}) {
   const product = data;
   const navigation = useNavigation();
@@ -18,10 +20,10 @@ export default function ProductCard({data}) {
         onPress={() => navigation.navigate(PRODUCT_DETAIL_SCREEN, { data: product })}
       >
         <Image source={{uri: product.thumbnail}} style={styles.productImage} />
-        <Text style={styles.name}>{product.title}</Text>
+        <Text style={styles.name} ellipsizeMode='tail' numberOfLines={2}>{product.title}</Text>
         <Text style={styles.pricing}>{ product.stock_record_price_currency} {product.stock_record_price_retail}</Text>
         <AddToCartButton
-          onPress={()=> Alert.alert("Added to cart!")}
+          onPress={()=> addToCart(product)}
           icon={<AntDesign name="shoppingcart" size={16} color={COLOR_WHITE} />}
         />
       </TouchableOpacity>

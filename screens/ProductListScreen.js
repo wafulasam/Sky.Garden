@@ -1,14 +1,22 @@
-import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, FlatList, Dimensions } from 'react-native';
+import React, { useEffect } from 'react';
+import { Text, StyleSheet, ImageBackground, FlatList, Dimensions } from 'react-native';
 import MainLayout from '../layouts/MainLayout';
 import { vh } from "react-native-css-vh-vw";
 import BreadCrumbs from '../components/BreadCrumbs';
 import ProductCard from '../components/Cards/ProductCard';
 import Pagination from '../components/Pagination';
 
-import { listings } from "../data"
+import { useAppStore } from "../store/store";
+import { fetchProducts } from "../store/actions/productsActions";
 
 export default function ProductListScreen({ navigation }) {
+  const { products } = useAppStore();
+
+  useEffect(()=> {
+    const { listings } = require("../data.json");
+    fetchProducts(listings);
+  },[])
+
   return (
     <MainLayout>
         <ImageBackground
@@ -24,9 +32,9 @@ export default function ProductListScreen({ navigation }) {
               ListFooterComponent={()=> <Pagination/>}
               showsVerticalScrollIndicator={false}
               numColumns={2}
-              data={listings}
+              data={products}
               renderItem={({ item }) => <ProductCard data={item} />}
-              keyExtractor={(item) => item.title}
+              keyExtractor={(item) => item.id}
             />
         </ImageBackground>
     </MainLayout>
