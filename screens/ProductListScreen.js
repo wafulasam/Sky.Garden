@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator, RefreshControl} from 'react-native';
 import MainLayout from '../layouts/MainLayout';
 import { vh } from "react-native-css-vh-vw";
 import BreadCrumbs from '../components/BreadCrumbs';
@@ -14,6 +14,7 @@ import { fetchProducts } from "../store/actions/productsActions";
 export default function ProductListScreen({ navigation }) {
   const [ listings, setListings ] = useState('');
   const [ loading, setLoading ] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
   const { products } = useAppStore();
 
   useEffect(() => {
@@ -44,6 +45,11 @@ export default function ProductListScreen({ navigation }) {
     fetchProducts(listings);
 },[])
 
+const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  setRefreshing(false);
+}, []);
+
 
   return (
     <MainLayout>
@@ -60,11 +66,12 @@ export default function ProductListScreen({ navigation }) {
               activeDetail="Smartphones"
             />
             <FlatList
+              refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
               ListHeaderComponent={()=> <Text style={styles.heading}>Smartphones</Text>}
               ListFooterComponent={()=> <Pagination/>}
               showsVerticalScrollIndicator={false}
               numColumns={2}
-              data={products}
+              data={listings}
               renderItem={({ item }) => <ProductCard data={item} />}
               keyExtractor={(item) => item.productId}
             />
