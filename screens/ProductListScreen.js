@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator} from 'react-native';
 import MainLayout from '../layouts/MainLayout';
 import { vh } from "react-native-css-vh-vw";
 import BreadCrumbs from '../components/BreadCrumbs';
 import ProductCard from '../components/Cards/ProductCard';
 import Pagination from '../components/Pagination';
 import { COLOR_GREEN } from "../styles/colors";
-import { vh } from "react-native-css-vh-vw";
 
 import  axios from 'axios'
 import { useAppStore } from "../store/store";
@@ -15,6 +14,7 @@ import { fetchProducts } from "../store/actions/productsActions";
 export default function ProductListScreen({ navigation }) {
   const [ listings, setListings ] = useState('');
   const [ loading, setLoading ] = useState(false);
+  
   const { products } = useAppStore();
 
   useEffect(() => {
@@ -48,7 +48,9 @@ export default function ProductListScreen({ navigation }) {
 
   return (
     <MainLayout>
-        {loading ? <ActivityIndicator size="large" color={COLOR_GREEN} style={{ marginVertical: vh(40) }} /> : 
+        { loading ? 
+          <ActivityIndicator size="large" color={COLOR_GREEN} style={{ marginVertical: vh(30) }} /> 
+          : listings ? 
           <ImageBackground
             source={require("../assets/images/bg-1.png")}
             style={styles.backgroundImage}
@@ -67,6 +69,11 @@ export default function ProductListScreen({ navigation }) {
               keyExtractor={(item) => item.productId}
             />
           </ImageBackground>
+          : 
+          <View style={{ marginVertical: vh(30), paddingHorizontal: 20, alignItems: "center"}}>
+              <Text>No products available!</Text>
+              <Text style={{ fontWeight: "bold"}}>Please check your internet connection</Text>
+          </View>
         }
     </MainLayout>
   );
