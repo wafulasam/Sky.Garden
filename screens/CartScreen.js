@@ -46,7 +46,7 @@ export default function CartScreen() {
             numColumns={1}
             data={cart}
             renderItem={({ item }) => <CartItemsCard data={item} />}
-            keyExtractor={(item, index) => item.id}
+            keyExtractor={(item, index) => item.productId}
           />
         }
       </View>
