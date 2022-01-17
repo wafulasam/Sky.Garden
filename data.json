@@ -1,7 +1,7 @@
 {
-  "listings" : [
+  "vitu" : [
   { 
-    "id": "1",
+    "productId": "1",
     "searchScore": 1.0,
     "title": "Mika Water Dispenser, Table Top, Hot, Normal & Cold, Electric cooling, Gold & Black MWD1502 / GBL",
     "stock_record_price_retail": 540.0,
@@ -12,7 +12,7 @@
     "partner_name": "Bella's Jewellery"
   },
   { 
-    "id": "2",
+    "productId": "2",
     "searchScore": 132.0,
     "title": "Four Leaf Clover Necklace.",
     "stock_record_price_retail": 540.0,
