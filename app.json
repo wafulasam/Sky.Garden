@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.domanisamuel.skygarden"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
