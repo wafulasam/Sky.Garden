@@ -41,13 +41,8 @@ export const cartReducer = (state = initialState, action) => {
       }
       case "INCREASE_QUANTITY": {
          const cart = state.cart && state.cart; 
-
-         // const initialProductState = {};
-         // state.products.filter((product) => product.productId === action.payload.productId ? initialProductState = product : null);
-
          objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
          cart[objIndex].quantity = action.payload.quantity + 1;
-         cart[objIndex].stock_record_price_retail = 540 * cart[objIndex].quantity
          const afterIncreamentState = cart;
          
          return {
@@ -56,11 +51,10 @@ export const cartReducer = (state = initialState, action) => {
          }
       } 
       case "DECREASE_QUANTITY": {
-         const cart = state.cart && state.cart;  
+         const cart = state.cart && state.cart; 
          objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
          cart[objIndex].quantity = action.payload.quantity - 1;
-         cart[objIndex].stock_record_price_retail = 540 * cart[objIndex].quantity
-         const afterIncreamentState = cart;
+         const afterDecreamentState = cart;
 
          // remove item from cart from when quantity is
          const itemToRemoveWhenQuantityIsZero = cart[objIndex];
@@ -73,7 +67,7 @@ export const cartReducer = (state = initialState, action) => {
          } else {
             return {
                ...state, 
-               cart: [...afterIncreamentState]
+               cart: [...afterDecreamentState]
             }
          }
       }     

@@ -27,7 +27,7 @@ export default function ProductListScreen({ navigation }) {
         }
         const payload = {
           "search": "offer_benefit_type eq 'Absolute' and category_slug eq 'smartphones' ",
-          "select": "title, partner_name, thumbnail, stock_record_price_currency, stock_record_price_retail, offer_benefit_type,offer_benefit_value, category_name,category_slug"
+          "select": "productId, title, partner_name, thumbnail, stock_record_price_currency, stock_record_price_retail, offer_benefit_type,offer_benefit_value, category_name,category_slug"
         }
         const baserul = "https://skygarden.search.windows.net/indexes/dev-productsv3/docs/search?api-version=2017-11-11";
 
