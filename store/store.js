@@ -9,7 +9,7 @@ export const useAppStore = () => {
     const cart = useSelector((state) => state.cartReducer.cart);
  
     return {
-       products,
-       cart,
+      products,
+      cart,
     }
  }

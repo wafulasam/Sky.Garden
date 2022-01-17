@@ -14,7 +14,6 @@ import { fetchProducts } from "../store/actions/productsActions";
 export default function ProductListScreen({ navigation }) {
   const [ listings, setListings ] = useState('');
   const [ loading, setLoading ] = useState(false);
-  
   const { products } = useAppStore();
 
   useEffect(() => {
@@ -48,9 +47,10 @@ export default function ProductListScreen({ navigation }) {
 
   return (
     <MainLayout>
+      {/* <Text>{JSON.stringify(products)}</Text> */}
         { loading ? 
           <ActivityIndicator size="large" color={COLOR_GREEN} style={{ marginVertical: vh(30) }} /> 
-          : listings ? 
+          : listings && listings ? 
           <ImageBackground
             source={require("../assets/images/bg-1.png")}
             style={styles.backgroundImage}

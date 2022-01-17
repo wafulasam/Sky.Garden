@@ -40,9 +40,13 @@ export const cartReducer = (state = initialState, action) => {
          return {...state, cart: [...newCartState]}
       }
       case "INCREASE_QUANTITY": {
+         // const initialProductState = {};
+         // state.products.filter((product) => product.id === action.payload.id ? initialProductState = product : null);
+
          const cart = state.cart && state.cart; 
          objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
          cart[objIndex].quantity = action.payload.quantity + 1;
+         cart[objIndex].stock_record_price_retail = 540 * cart[objIndex].quantity
          const afterIncreamentState = cart;
          
          return {
@@ -54,6 +58,7 @@ export const cartReducer = (state = initialState, action) => {
          const cart = state.cart && state.cart; 
          objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
          cart[objIndex].quantity = action.payload.quantity - 1;
+         cart[objIndex].stock_record_price_retail = 540 * cart[objIndex].quantity
          const afterDecreamentState = cart;
 
          // remove item from cart from when quantity is
