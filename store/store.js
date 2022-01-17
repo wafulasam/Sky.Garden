@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 export const store = createStore(rootReducer);
 
 export const useAppStore = () => {
-    const products = useSelector((state) => state.productsReducer.products).flat();
-    const cart = useSelector((state) => state.cartReducer.cart);
+    const products = useSelector((state) => state.products.products).flat();
+    const cart = useSelector((state) => state.cart.cart);
  
     return {
       products,

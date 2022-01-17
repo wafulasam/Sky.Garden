@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator, RefreshControl} from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator, RefreshControl } from 'react-native';
 import MainLayout from '../layouts/MainLayout';
 import { vh } from "react-native-css-vh-vw";
 import BreadCrumbs from '../components/BreadCrumbs';
@@ -23,7 +23,7 @@ export default function ProductListScreen({ navigation }) {
         const headers = { 
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'api-key': '4F2408C83BBB69BB31AE97737ED6EE2F'
+          'api-key': '4F2408C83BBB69BB31AE97737ED6EE2F' // key hard coded for now 
         }
         const payload = {
           "search": "offer_benefit_type eq 'Absolute' and category_slug eq 'smartphones' ",
@@ -43,13 +43,18 @@ export default function ProductListScreen({ navigation }) {
     }
     fetchListings();
     fetchProducts(listings);
+    async function persistProducts (){
+
+    }
 },[])
 
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
 const onRefresh = React.useCallback(() => {
   setRefreshing(true);
-  setRefreshing(false);
+  wait(2000).then(() => setRefreshing(false));
 }, []);
-
 
   return (
     <MainLayout>
