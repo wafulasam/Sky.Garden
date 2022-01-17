@@ -43,9 +43,6 @@ export default function ProductListScreen({ navigation }) {
     }
     fetchListings();
     fetchProducts(listings);
-    async function persistProducts (){
-
-    }
 },[])
 
 const wait = (timeout) => {

@@ -40,45 +40,40 @@ export const cartReducer = (state = initialState, action) => {
          return {...state, cart: [...newCartState]}
       }
       case "INCREASE_QUANTITY": {
-         console.log(globalProducts);
          // const initialProductState = {};
          // globalProducts.filter((product) => product.productId === action.payload.productId ? initialProductState = product : null);
 
-         // const cart = state.cart && state.cart; 
-         // objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
-         // cart[objIndex].quantity = action.payload.quantity + 1;
+         const cart = state.cart && state.cart; 
+         objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
+         cart[objIndex].quantity = action.payload.quantity + 1;
          // cart[objIndex].stock_record_price_retail = initialProductState[objIndex].stock_record_price_retail * cart[objIndex].quantity
-         // const afterIncreamentState = cart;
+         const afterIncreamentState = cart;
          
-         // return {
-         //    ...state, 
-         //    cart: [...afterIncreamentState]
-         // }
+         return {
+            ...state, 
+            cart: [...afterIncreamentState]
+         }
       } 
       case "DECREASE_QUANTITY": {
-         // const initialProductState = {};
-         // globalProducts.filter((product) => product.productId === action.payload.productId ? initialProductState = product : null);
+         const cart = state.cart && state.cart; 
+         objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
+         cart[objIndex].quantity = action.payload.quantity - 1;
+         const afterDecreamentState = cart;
 
-         // const cart = state.cart && state.cart; 
-         // objIndex = cart.findIndex((obj => obj.productId === action.payload.productId));
-         // cart[objIndex].quantity = action.payload.quantity - 1;
-         //          cart[objIndex].stock_record_price_retail = initialProductState[objIndex].stock_record_price_retail * cart[objIndex].quantity
-         // const afterDecreamentState = cart;
-
-         // // remove item from cart from when quantity is
-         // const itemToRemoveWhenQuantityIsZero = cart[objIndex];
-         // if(itemToRemoveWhenQuantityIsZero.quantity <1) {
-         //    const newCartStateWhenQuantityIsZero = _.pull(state.cart, itemToRemoveWhenQuantityIsZero);
-         //    return {
-         //       ...state, 
-         //       cart: [...newCartStateWhenQuantityIsZero]
-         //    }
-         // } else {
-         //    return {
-         //       ...state, 
-         //       cart: [...afterDecreamentState]
-         //    }
-         // }
+         // remove item from cart from when quantity is
+         const itemToRemoveWhenQuantityIsZero = cart[objIndex];
+         if(itemToRemoveWhenQuantityIsZero.quantity <1) {
+            const newCartStateWhenQuantityIsZero = _.pull(state.cart, itemToRemoveWhenQuantityIsZero);
+            return {
+               ...state, 
+               cart: [...newCartStateWhenQuantityIsZero]
+            }
+         } else {
+            return {
+               ...state, 
+               cart: [...afterDecreamentState]
+            }
+         }
       }     
       default:
          return state;

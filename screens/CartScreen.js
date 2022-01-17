@@ -16,8 +16,8 @@ function CartFooter (data) {
   return (
     <View>
       <View style={styles.cartTotal}>
-        <Text style={styles.total}>Total</Text>
-        <Text style={styles.totalPrice}>Ksh {getTotalCartPrice(cart)}</Text>
+        {/* <Text style={styles.total}>Total</Text>
+        <Text style={styles.totalPrice}>Ksh {getTotalCartPrice(cart)}</Text> */}
       </View>
       <View style={styles.checkoutButton}>
         <PrimaryButton
