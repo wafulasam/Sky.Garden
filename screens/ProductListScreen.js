@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator} from 'react-native';
+import { Text, StyleSheet, ImageBackground, FlatList , ActivityIndicator} from 'react-native';
 import MainLayout from '../layouts/MainLayout';
 import { vh } from "react-native-css-vh-vw";
 import BreadCrumbs from '../components/BreadCrumbs';
