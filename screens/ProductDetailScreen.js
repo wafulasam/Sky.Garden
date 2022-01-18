@@ -5,7 +5,8 @@ import BreadCrumbs from '../components/BreadCrumbs';
 import PrimaryButton from "../components/Buttons/PrimaryButton"
 import { COLOR_DARK, COLOR_GREEN, COLOR_LIME, COLOR_TEXT, COLOR_WHITE } from "../styles/colors";
 import { BORDER_RADIUS } from "../styles/variables";
-import { vh } from "react-native-css-vh-vw";
+import { vh, vw} from "react-native-css-vh-vw";
+import { AntDesign} from "@expo/vector-icons";
 
 import { addToCart } from "../store/actions/cartActions";
 
@@ -42,20 +43,32 @@ export default function ProductDetailScreen({ route }) {
         </View>
         <Image source={require("../assets/images/bg-2.png")} style={styles.curverdBackground} />
         <View style={{backgroundColor: COLOR_LIME, paddingHorizontal: 20, paddingBottom: 50}}>
-            <View style={styles.descriptionButton}>
-              <Text style={styles.descriptionText}>Description</Text>
+            <View style={{ flexDirection: "row",}}>
+              <View style={styles.descriptionButton}>
+                <Text style={styles.descriptionText}>Description</Text>
+              </View>
+              <AntDesign name="up" size={25} color={COLOR_TEXT} style={{ marginLeft: vw(40), textAlignVertical: 'center'}} />
             </View>
+            <View style={{flex: 1, height: 3, backgroundColor: COLOR_TEXT, marginVertical: 5}} />
             <View>
               <Text style={{fontWeight: "bold"}}>About </Text>
               <Text>iPhone X features an all-screen design with a 5.8-inch Super Retina HD display with HDR and True Tone.¹ Designed with the most durable glass ever in a smartphone and a surgical grade.</Text>
               <Text style={{fontWeight: "bold", marginTop: 10}}>Features</Text>
-              <Text>All-screen design </Text>
-              <Text>5.8-inch Super Retina HD display</Text>
-              <Text>HDR and True Tone.</Text>
+              <Text> - All-screen design </Text>
+              <Text> - 5.8-inch Super Retina HD display</Text>
+              <Text> - HDR and True Tone.</Text>
               <Text style={{fontWeight: "bold", marginTop: 10}}>Product Condition</Text>
               <Text>New</Text>
-              <Text style={{fontWeight: "bold", color: COLOR_TEXT, fontSize: 20, marginVertical: 10}}>Product Reviews</Text>
-              <Text style={{fontWeight: "bold", color: COLOR_TEXT, fontSize: 20, marginVertical: 10}}>Shipping & Returns</Text>
+              <View style={{ flexDirection: "row"}}>
+                <Text style={{fontWeight: "bold", color: COLOR_TEXT, fontSize: 20, marginVertical: 10}}>Product Reviews</Text>
+                <AntDesign name="down" size={25} color={COLOR_TEXT} style={{ marginLeft: vw(40), textAlignVertical: 'center'}} />
+              </View>
+              <View style={{flex: 1, height: 3, backgroundColor: COLOR_TEXT, marginVertical: 5}} />
+              <View style={{ flexDirection: "row"}}>
+                <Text style={{fontWeight: "bold", color: COLOR_TEXT, fontSize: 20, marginVertical: 10}}>Shipping & Returns</Text>
+                <AntDesign name="down" size={25} color={COLOR_TEXT} style={{ marginLeft: vw(33), textAlignVertical: 'center'}} />
+              </View>
+              <View style={{flex: 1, height: 3, backgroundColor: COLOR_TEXT, marginVertical: 10}} />
               <View style={styles.knowYourSeller}>
                   <View style={{padding: 10}}>
                     <Text style={{fontWeight: "bold", fontSize: 18, marginBottom: 10}}>Know your Seller</Text>
@@ -136,7 +149,6 @@ const styles = StyleSheet.create({
     width: 150,
     alignItems: 'center',
     borderRadius: BORDER_RADIUS,
-    marginBottom: 20
   },
   descriptionText: {
     color: COLOR_DARK,
